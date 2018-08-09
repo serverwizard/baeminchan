@@ -1421,8 +1421,10 @@ a:focus {
   width: 980px;
   height: 100%;
 }
-
+/* transition 적용 */
 #main-visual .img-box .img-item {
+  opacity: 0;
+  transition: opacity 1s;
   position: absolute;
   left: 0;
   right: 0;
@@ -1433,6 +1435,10 @@ a:focus {
   background-position: center center;
 }
 
+#main-visual .img-box .current {
+  opacity: 1
+}
+/* /transition 적용 */
 #main-visual .img-box .img-1 {
   background-image: url(./img/img-main-visual-slide_1.jpg);
 }
@@ -1521,3 +1527,8 @@ a:focus {
 .on {
   background: #000000;
 }
+
+/*.img-box .current {*/
+  /*opacity: 1;*/
+  /*transition: opacity 1s;*/
+/*}*/
