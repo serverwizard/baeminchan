@@ -1,5 +1,7 @@
 package codesquad.domain;
 
+import codesquad.dto.CategoryDto;
+import codesquad.exception.UnAuthenticationException;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -22,7 +24,7 @@ public class Category {
 
     @ManyToOne
     @JoinColumn(foreignKey = @ForeignKey(name = "fk_category_parent"))
-    private Category parent;
+    private Category parentCategory;
 
     @OneToMany(mappedBy = "id")
     private List<Category> subCategories;
@@ -34,11 +36,22 @@ public class Category {
     @Column
     private LocalDateTime createTime;
 
-    public Category(String name, Category parentCategory, User loginUser) {
+    public Category(String name, Category parentCategory, User loginUser) throws UnAuthenticationException {
+        if(!loginUser.isAdmin()) {
+            throw new UnAuthenticationException("관리자 권한만 카테고리 등록이 가능합니다.");
+        }
         this.name = name;
-        this.parent = parentCategory;
+        this.parentCategory = parentCategory;
         this.createTime = LocalDateTime.now();
         this.writer = loginUser;
+    }
+
+    public Category update(CategoryDto categoryDto, User loginUser) {
+        if(!loginUser.isAdmin()) {
+            throw new UnAuthenticationException("관리자 권한만 카테고리 수정이 가능합니다.");
+        }
+        this.name = categoryDto.getName();
+        return this;
     }
 }
 

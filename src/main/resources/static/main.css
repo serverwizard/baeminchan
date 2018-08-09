@@ -376,6 +376,7 @@ a:focus {
 #header .search-form {
   position: relative;
   margin: 14px 10px 14px 40px;
+  z-index: 1;
 }
 
 #header .search-form input[type="text"] {
@@ -1511,4 +1512,12 @@ a:focus {
 #page-template .thumbnail-box {
   width: 250px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.search-result-list-box {
+  background: #9e968b;
+}
+
+.on {
+  background: #000000;
 }

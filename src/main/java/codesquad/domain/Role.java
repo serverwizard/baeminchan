@@ -16,6 +16,10 @@ public class Role {
     @Column
     @Enumerated(EnumType.STRING)
     private Authority authority;
+
+    public boolean isAdmin() {
+        return this.authority == Authority.ADMIN;
+    }
 }
 
 // id | authority

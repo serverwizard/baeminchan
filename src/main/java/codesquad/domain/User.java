@@ -51,6 +51,10 @@ public class User {
         return false;
     }
 
+    public boolean isAdmin() {
+        return role.isAdmin();
+    }
+
     private static class GuestUser extends User {
         @Override
         public boolean isGuestUser() {

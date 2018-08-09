@@ -69,12 +69,19 @@
         <img src="./img/logo-main.png" alt="배민찬 - 모바일 넘버원 반찬가게" />
       </a>
 
-      <form class="search-form" action="/" method="get">
+
+      <form class="search-form" action="/" method="get" onsubmit="return false;">
         <label for="searching_text" class="blind">검색</label>
-        <input type="text" name="searching_text" id="searching_text" />
+        <!--문제-->
+          <input type="text" name="searching_text" id="searching_text" autocomplete="off"/>
         <button type="submit">
           <span>검색</span>
         </button>
+        <div id="search-text-list-box" class ="search-result-list-box">
+          <ul>
+
+          </ul>
+        </div>
       </form>
 
       <ul class="favorite-menu">
@@ -318,7 +325,7 @@
     <section id="main-visual" class="main-visual-section visual-slider-box">
       <h2 class="blind">주요 프로모션</h2>
 
-      <ul class="img-box">
+      <ul class="img-box" id="promotion-img-box">
         <li class="img-item img-1 current">
           <a href="#">
             <span class="blind">장윤주 식단 대공개! 그녀의 건강 반찬을 소개합니다.</span>
@@ -347,8 +354,8 @@
       </ul>
 
       <div class="direction-btn-box">
-        <a class="bm-icon spr-btn-arrow-main-slide prev" href="#" title="이전 슬라이드 보기"></a>
-        <a class="bm-icon spr-btn-arrow-main-slide next" href="#" title="다음 슬라이드 보기"></a>
+        <a class="bm-icon spr-btn-arrow-main-slide prev" id="btnPrevArrow" href="#" title="이전 슬라이드 보기"></a>
+        <a class="bm-icon spr-btn-arrow-main-slide next" id="btnNextArrow" href="#" title="다음 슬라이드 보기"></a>
       </div>
 
       <div class="dot-btn-box">
@@ -1034,8 +1041,8 @@
     </section>
   </footer>
   <!-- // footer -->
-
-
+  <script type="module" src="/js/SearchTextBox.js"></script>
+  <script type="module" src="/js/promotion/promotion.js"></script>
 </body>
 
 </html>

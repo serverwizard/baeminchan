@@ -1,6 +1,6 @@
 package codesquad.exception;
 
-public class UnAuthenticationException extends Exception {
+public class UnAuthenticationException extends RuntimeException {
     public UnAuthenticationException() {
     }
 
